@@ -108,6 +108,7 @@ func strategyMarginBot(bconf BotConfig, dryRun bool) (err error) {
 
 	// Place the offers
 	for _, o := range loanOffers {
+		o.Rate -= 0.0003
 		log.Println("\tPlacing offer: " +
 			strconv.FormatFloat(o.Amount, 'f', -1, 64) + " " + activeWallet + " @ " +
 			strconv.FormatFloat(o.Rate/365.0, 'f', -1, 64) + " % for " + strconv.Itoa(o.Period) + " days")
